@@ -1,0 +1,59 @@
+
+{
+  "tvs": [
+    {
+      "id": "wego",
+      "name": "Wego",
+      "image": "/lovable-uploads/be8069d3-627d-4721-aa5e-ce73f3512ade.png",
+      "fuel": "Petrol"
+    },
+    {
+      "id": "jupiter110",
+      "name": "Jupiter 110",
+      "image": "/lovable-uploads/81c7e40e-0bb3-4cb1-8d05-b14c31f860a5.png",
+      "fuel": "Petrol"
+    },
+    {
+      "id": "jupiter113",
+      "name": "Jupiter 113",
+      "image": "/lovable-uploads/be8069d3-627d-4721-aa5e-ce73f3512ade.png",
+      "fuel": "Petrol"
+    },
+    {
+      "id": "jupiter125",
+      "name": "Jupiter 125",
+      "image": "/lovable-uploads/81c7e40e-0bb3-4cb1-8d05-b14c31f860a5.png",
+      "fuel": "Petrol"
+    },
+    {
+      "id": "streak88",
+      "name": "Streak 88",
+      "image": "/lovable-uploads/be8069d3-627d-4721-aa5e-ce73f3512ade.png",
+      "fuel": "Petrol"
+    },
+    {
+      "id": "ntorq125",
+      "name": "NTORQ 125",
+      "image": "/lovable-uploads/81c7e40e-0bb3-4cb1-8d05-b14c31f860a5.png",
+      "fuel": "Petrol"
+    },
+    {
+      "id": "pepplus88",
+      "name": "Pep Plus 88",
+      "image": "/lovable-uploads/be8069d3-627d-4721-aa5e-ce73f3512ade.png",
+      "fuel": "Petrol"
+    },
+    {
+      "id": "zest110",
+      "name": "Zest 110",
+      "image": "/lovable-uploads/81c7e40e-0bb3-4cb1-8d05-b14c31f860a5.png",
+      "fuel": "Petrol"
+    },
+    {
+      "id": "iqube",
+      "name": "iQube",
+      "image": "/lovable-uploads/be8069d3-627d-4721-aa5e-ce73f3512ade.png",
+      "fuel": "Electric"
+    }
+  ]
+}

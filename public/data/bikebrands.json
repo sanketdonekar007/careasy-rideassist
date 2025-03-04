@@ -1,0 +1,63 @@
+
+[
+  {
+    "id": "tvs",
+    "name": "TVS",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/23/TVS_Motor_Company_Logo.svg/1200px-TVS_Motor_Company_Logo.svg.png"
+  },
+  {
+    "id": "hero",
+    "name": "Hero",
+    "logo": "https://logodownload.org/wp-content/uploads/2019/11/hero-motocorp-logo-0-1.png"
+  },
+  {
+    "id": "bajaj",
+    "name": "Bajaj",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Bajaj_Auto_logo.svg/2560px-Bajaj_Auto_logo.svg.png"
+  },
+  {
+    "id": "suzuki",
+    "name": "Suzuki",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Suzuki_logo_2.svg/2560px-Suzuki_logo_2.svg.png"
+  },
+  {
+    "id": "yamaha",
+    "name": "Yamaha",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Yamaha_Motor_Logo.svg/2560px-Yamaha_Motor_Logo.svg.png"
+  },
+  {
+    "id": "royal-enfield",
+    "name": "Royal Enfield",
+    "logo": "https://logos-world.net/wp-content/uploads/2022/01/Royal-Enfield-Logo.png"
+  },
+  {
+    "id": "ktm",
+    "name": "KTM",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/KTM-Logo.svg/2560px-KTM-Logo.svg.png"
+  },
+  {
+    "id": "harley-davidson",
+    "name": "Harley-Davidson",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Harley-Davidson_logo.svg/1200px-Harley-Davidson_logo.svg.png"
+  },
+  {
+    "id": "kawasaki",
+    "name": "Kawasaki",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kawasaki_Heavy_Industries_Logo.svg/2560px-Kawasaki_Heavy_Industries_Logo.svg.png"
+  },
+  {
+    "id": "triumph",
+    "name": "Triumph",
+    "logo": "https://1000logos.net/wp-content/uploads/2020/02/Triumph-Logo-1990.jpg"
+  },
+  {
+    "id": "jawa",
+    "name": "Jawa",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Jawa_motorcycle_logo.svg/1280px-Jawa_motorcycle_logo.svg.png"
+  },
+  {
+    "id": "yezdi",
+    "name": "Yezdi",
+    "logo": "https://1000logos.net/wp-content/uploads/2022/03/Yezdi.png"
+  }
+]
