@@ -68,5 +68,3 @@ const VehicleSelect = () => {
 };
 
 export default VehicleSelect;
-
-<lov-add-dependency>framer-motion@latest</lov-add-dependency>
