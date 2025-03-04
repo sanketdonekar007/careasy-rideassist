@@ -70,6 +70,7 @@ const OtpVerification = () => {
                   {slots.map((slot, index) => (
                     <InputOTPSlot
                       key={index}
+                      index={index}
                       {...slot}
                       className="w-14 h-14 text-xl border-gray-300"
                     />

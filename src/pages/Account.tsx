@@ -1,7 +1,7 @@
 
 import PageHeader from "@/components/common/PageHeader";
 import BottomNavigation from "@/components/common/BottomNavigation";
-import { ChevronRight, PackageOpen, Car, HeadphonesEarbuds, CircleDollarSign, User, Share, Gift } from "lucide-react";
+import { ChevronRight, PackageOpen, Car, Headphones, CircleDollarSign, User, Share, Gift } from "lucide-react";
 
 const AccountItem = ({ icon, title, subtitle, onClick }: { 
   icon: React.ReactNode, 
@@ -49,7 +49,7 @@ const Account = () => {
         
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 flex items-center justify-center mb-2">
-            <HeadphonesEarbuds className="text-gray-600" />
+            <Headphones className="text-gray-600" />
           </div>
           <span className="text-sm">Help & Support</span>
         </div>
