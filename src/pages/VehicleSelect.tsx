@@ -32,7 +32,7 @@ const VehicleSelect = () => {
             onClick={() => setSelectedType('car')}
           >
             <img
-              src="/lovable-uploads/c088b42e-c969-4dc8-9ed3-d5b0613b4735.png"
+              src="/lovable-uploads/56d90bf3-4693-40e1-a089-469d1237ca43.png"
               alt="Car"
               className="w-full h-auto object-contain animate-float"
             />
@@ -46,7 +46,7 @@ const VehicleSelect = () => {
             onClick={() => setSelectedType('bike')}
           >
             <img
-              src="/lovable-uploads/d311cc6f-ac7f-4e9e-8d31-6d9b5251dd72.png"
+              src="/lovable-uploads/7b8f5a6c-7821-41aa-b97f-02d6c28c9c9a.png"
               alt="Bike"
               className="w-full h-auto object-contain animate-float"
             />
