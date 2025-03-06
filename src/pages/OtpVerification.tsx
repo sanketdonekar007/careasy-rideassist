@@ -4,13 +4,18 @@ import { useNavigate } from "react-router-dom";
 import PageHeader from "@/components/common/PageHeader";
 import { Button } from "@/components/ui/button";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
-import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
 
 const OtpVerification = () => {
   const [otp, setOtp] = useState("");
   const [timer, setTimer] = useState(30);
   const navigate = useNavigate();
-  const phoneNumber = "+918149760321"; // This would come from context/state in a real app
+  const { phoneNumber, verifyCode, sendVerificationCode } = useAuth();
+
+  // Format the phone number for display
+  const formattedPhone = phoneNumber.startsWith("+") 
+    ? phoneNumber 
+    : `+91${phoneNumber}`;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,19 +25,21 @@ const OtpVerification = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleVerify = () => {
+  const handleVerify = async () => {
     if (otp.length === 4) {
-      toast.success("OTP verified successfully");
-      navigate("/select-vehicle");
-    } else {
-      toast.error("Please enter a valid OTP");
+      const success = await verifyCode(otp);
+      if (success) {
+        navigate("/select-vehicle");
+      }
     }
   };
 
-  const handleResend = () => {
+  const handleResend = async () => {
     if (timer === 0) {
-      toast.success("OTP resent successfully");
-      setTimer(30);
+      const success = await sendVerificationCode();
+      if (success) {
+        setTimer(30);
+      }
     }
   };
 
@@ -47,12 +54,12 @@ const OtpVerification = () => {
           </h1>
           
           <div className="flex items-center justify-between">
-            <span className="text-lg">{phoneNumber}</span>
+            <span className="text-lg">{formattedPhone}</span>
             <button 
-              className="text-brand-red text-sm font-medium"
+              className="text-brand-red text-sm font-medium uppercase"
               onClick={() => navigate(-1)}
             >
-              EDIT
+              Edit
             </button>
           </div>
           
@@ -67,10 +74,10 @@ const OtpVerification = () => {
               maxLength={4}
               render={({ slots }) => (
                 <InputOTPGroup>
-                  {slots.map((slot, index) => (
+                  {slots.map((slot, i) => (
                     <InputOTPSlot
-                      key={index}
-                      index={index}
+                      key={i}
+                      index={i}
                       {...slot}
                       className="w-14 h-14 text-xl border-gray-300"
                     />

@@ -4,14 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Index = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const navigate = useNavigate();
+  const { setPhoneNumber: setAuthPhoneNumber, sendVerificationCode } = useAuth();
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     if (phoneNumber.length >= 10) {
-      navigate("/verify-otp");
+      setAuthPhoneNumber(phoneNumber);
+      const success = await sendVerificationCode();
+      if (success) {
+        navigate("/verify-otp");
+      }
     }
   };
 
