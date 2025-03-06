@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PageHeader from "@/components/common/PageHeader";
 import { Button } from "@/components/ui/button";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
+import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
 
 const OtpVerification = () => {
-  const [otp, setOtp] = useState("");
+  const [otp, setOtp] = useState<string[]>(["", "", "", ""]);
   const [timer, setTimer] = useState(30);
   const navigate = useNavigate();
   const { phoneNumber, verifyCode, sendVerificationCode } = useAuth();
@@ -26,8 +26,9 @@ const OtpVerification = () => {
   }, []);
 
   const handleVerify = async () => {
-    if (otp.length === 4) {
-      const success = await verifyCode(otp);
+    const otpString = otp.join("");
+    if (otpString.length === 4) {
+      const success = await verifyCode(otpString);
       if (success) {
         navigate("/select-vehicle");
       }
@@ -39,6 +40,33 @@ const OtpVerification = () => {
       const success = await sendVerificationCode();
       if (success) {
         setTimer(30);
+        setOtp(["", "", "", ""]);
+      }
+    }
+  };
+
+  const handleInputChange = (index: number, value: string) => {
+    if (value.length <= 1 && /^\d*$/.test(value)) {
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+      
+      // Auto-focus next input
+      if (value && index < 3) {
+        const nextInput = document.getElementById(`otp-input-${index + 1}`);
+        if (nextInput) {
+          nextInput.focus();
+        }
+      }
+    }
+  };
+
+  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Handle backspace to move to previous input
+    if (e.key === "Backspace" && !otp[index] && index > 0) {
+      const prevInput = document.getElementById(`otp-input-${index - 1}`);
+      if (prevInput) {
+        prevInput.focus();
       }
     }
   };
@@ -67,24 +95,21 @@ const OtpVerification = () => {
             Enter the OTP below to verify your number
           </p>
           
-          <div className="flex justify-center py-4">
-            <InputOTP
-              value={otp}
-              onChange={setOtp}
-              maxLength={4}
-              render={({ slots }) => (
-                <InputOTPGroup>
-                  {slots.map((slot, i) => (
-                    <InputOTPSlot
-                      key={i}
-                      index={i}
-                      {...slot}
-                      className="w-14 h-14 text-xl border-gray-300"
-                    />
-                  ))}
-                </InputOTPGroup>
-              )}
-            />
+          <div className="flex justify-center gap-3 py-4">
+            {otp.map((digit, index) => (
+              <Input
+                key={index}
+                id={`otp-input-${index}`}
+                type="text"
+                inputMode="numeric"
+                value={digit}
+                onChange={(e) => handleInputChange(index, e.target.value)}
+                onKeyDown={(e) => handleKeyDown(index, e)}
+                className="w-14 h-14 text-xl text-center border-gray-300"
+                maxLength={1}
+                autoFocus={index === 0}
+              />
+            ))}
           </div>
           
           <div className="flex justify-center">
@@ -99,7 +124,7 @@ const OtpVerification = () => {
           
           <Button 
             onClick={handleVerify}
-            disabled={otp.length !== 4}
+            disabled={otp.some(digit => digit === "")}
             className="w-full bg-brand-red hover:bg-red-600 transition-all"
           >
             VERIFY
